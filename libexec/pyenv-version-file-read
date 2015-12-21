@@ -13,8 +13,10 @@ if [ -e "$VERSION_FILE" ]; then
   versions=("${words[@]}")
 
   if [ -n "$versions" ]; then
+    OLDIFS="$IFS"
     IFS=":"
     echo "${versions[*]}"
+    IFS="$OLDIFS"
     exit
   fi
 fi
